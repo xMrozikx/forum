@@ -4,6 +4,12 @@
     <div class="post">
         <%= post.title %><br>
         <%= post.text %><br>
+        <p>odp tbh</p>
+        <% post.comments.first(5).each do |comment| %>
+             <p>
+                <%= comment.body %>
+            </p>
+        <% end %>
         <td><%= link_to 'Show', post_path(post) %></td>
         <td><%= link_to 'Delete', post_path(post),
             method: :delete,
