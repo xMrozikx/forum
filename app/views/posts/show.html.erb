@@ -1,3 +1,4 @@
+<h1>FREDL:</h1>
 <p>
     <p>TYTUŁ:</p>
     <%= @post.title %>
@@ -7,3 +8,24 @@
     <p>TREŚĆ(TBH):</p>
     <%= @post.text %>
 </p>
+
+<h2>comments</h2>
+<% @post.comments.each do |comment| %>
+    <p>
+        <strong>comment:</strong>
+        <%= comment.body %>
+    </p>
+<% end %>
+
+<h2>reply:</h2>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+    <p>
+        <%= f.text_area :body %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %>
+<%= link_to 'Back', posts_path %>
