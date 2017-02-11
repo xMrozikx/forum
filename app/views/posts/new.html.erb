@@ -7,7 +7,7 @@
                 eroro:
             </h2>
             <ul>
-                <% @post.errors.full_messages.eacg do |msg| %>
+                <% @post.errors.full_messages.each do |msg| %>
                     <li><%= msg %></li>
                 <% end %>
             </ul>
