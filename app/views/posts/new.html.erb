@@ -1,4 +1,19 @@
 <%= form_for :post, url: posts_path do |f| %>
+
+    <% if @post.errors.any? %>
+        <div id="error explanation">
+            <h2>
+                <%= pluralize(@post.errors.count, "error") %>
+                eroro:
+            </h2>
+            <ul>
+                <% @post.errors.full_messages.eacg do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
     <p>
         <%= f.label :title %><br>
         <%= f.text_field :title %>
