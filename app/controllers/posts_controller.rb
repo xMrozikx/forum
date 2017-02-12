@@ -21,4 +21,7 @@ class PostsController < ApplicationController
     def show
         @post = Post.find(params[:id])
     end
+
+    http_basic_authenticate_with name: "lel", password: "kek",
+        only: :destroy
 end
